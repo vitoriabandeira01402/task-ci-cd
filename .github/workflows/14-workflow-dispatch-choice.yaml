@@ -1,0 +1,21 @@
+name: GitHub Actions - Workflow Dispatch Inputs Choice
+run-name: Running - ${{ github.event.inputs.tipo }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      tipo:
+        description: "Selecione o tipo"
+        required: true
+        type: choice
+        options:
+          - opção_1
+          - opção_2
+          - opção_3
+
+jobs:
+  job01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrando o INPUT escolhido
+        run: echo "Você selecionou: ${{ github.event.inputs.tipo }}"
