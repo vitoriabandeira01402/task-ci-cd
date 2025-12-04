@@ -1,0 +1,17 @@
+name: GitHub Actions - Workflow Dispatch Inputs Boolean
+run-name: Running - Boolean = ${{ github.event.inputs.verdadeiro }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      verdadeiro:
+        description: "Escolha verdadeiro ou falso"
+        required: true
+        type: boolean
+
+jobs:
+  job01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resultado do Boolean
+        run: echo "Valor escolhido: ${{ github.event.inputs.verdadeiro }}"
