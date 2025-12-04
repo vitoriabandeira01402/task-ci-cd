@@ -1,0 +1,12 @@
+name: GitHub Actions - Workflow Dispatch Basico
+run-name: Running - ${{ github.event_name }}
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comentário
+        run: echo "Executado workflow_dispatch básico!"
