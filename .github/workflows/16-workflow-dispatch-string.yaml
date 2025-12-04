@@ -1,0 +1,17 @@
+name: GitHub Actions - Workflow Dispatch Inputs String
+run-name: Running - ${{ github.event.inputs.texto }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      texto:
+        description: "Digite um texto"
+        required: true
+        type: string
+
+jobs:
+  job01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrando o texto digitado
+        run: echo "Você digitou: ${{ github.event.inputs.texto }}"
