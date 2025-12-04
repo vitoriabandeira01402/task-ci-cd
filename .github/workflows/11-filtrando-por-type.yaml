@@ -1,4 +1,4 @@
-name: GitHub Actions - Push - Type Template
+name: GitHub Actions - Push - Type Templatee
 run-name: Running - ${{ github.event_name }}
 
 on:
