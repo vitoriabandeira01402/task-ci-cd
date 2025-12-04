@@ -1,0 +1,32 @@
+name: CI Teste
+
+on:
+	push:
+		branches: [ main ]
+	pull_request:
+		branches: [ main ]
+
+jobs:
+	build:
+		runs-on: ubuntu-latest
+		steps:
+			- name: Checkout
+				uses: actions/checkout@v4
+
+			- name: Show environment
+				run: |
+					echo "Workflow Teste"
+					echo "Commit: $GITHUB_SHA"
+					echo "Ref: $GITHUB_REF"
+					uname -a
+					ls -la
+
+			- name: Checagem de README
+				run: |
+					echo "Fazendo checagem básica: procurando README"
+					if find . -maxdepth 1 -type f -iname 'readme*' | grep -q .; then
+						echo "Projeto pronto: README encontrado"
+					else
+						echo "Projeto incompleto: README ausente"
+						exit 1
+					fi
