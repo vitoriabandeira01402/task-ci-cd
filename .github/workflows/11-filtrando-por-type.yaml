@@ -1,0 +1,16 @@
+name: GitHub Actions - Push - Type Template
+run-name: Running - ${{ github.event_name }}
+
+on:
+  pull_request:
+    types: 
+      - opened
+      - reopened
+      - closed
+
+jobs:
+  job01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comentário
+        run: echo "FILTRANDO PULL-REQUEST POR TYPE"
